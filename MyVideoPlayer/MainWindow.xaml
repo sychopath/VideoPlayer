@@ -1,0 +1,27 @@
+﻿<Window x:Class="MyVideoPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyVideoPlayer"
+        mc:Ignorable="d"
+        Title="MyVideoPlayer" Height="800" Width="1200">
+    <Grid>
+        <ContentControl x:Name="contentContainer" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <!-- Hello, User Icon -->
+                <StackPanel x:Name="helloUserPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                    <Image Source="images/user.jpg" Width="50" Height="50" Margin="0,0,10,0" Name="UserImage"/>
+                    <TextBlock Text="{Binding Username}" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                </StackPanel>
+                
+                <TextBlock Text="Welcome to MyVideoPlayer!" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                <!--<local:LoginUserControl LoginSuccessful="OnLoginSuccessful"></local:LoginUserControl>-->
+                <local:LoginUserControl x:Name="loginUserControl"  LoginSuccessful="OnLoginSuccessful" />
+                <local:LoadVideos x:Name="loadVideos" Visibility="Collapsed"/>
+                <local:AddVideos x:Name="addVideos" Visibility="Collapsed" />
+            </StackPanel>
+            
+        </ContentControl>
+    </Grid>
+</Window>
